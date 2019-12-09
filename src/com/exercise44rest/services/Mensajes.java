@@ -79,8 +79,13 @@ public class Mensajes {
 	@GET
 	@Path("/resta/{numero1}/{numero2}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public double restaNumerosGET (@PathParam("numero1")double minuendo,@PathParam("numero2")double sustraendo)
+	public String restaNumerosGET (@PathParam("numero1")double minuendo,@PathParam("numero2")double sustraendo)
 	{
-		return minuendo-sustraendo;		//http://localhost:8080/Exercise44Rest/msgs/resta/10/2
+		String miJson="";
+		
+		miJson="{ \"Resta\" : "+(minuendo-sustraendo)
+				+ "}";
+		
+		return miJson;		//http://localhost:8080/Exercise44Rest/msgs/resta/10/2
 	}
 }
